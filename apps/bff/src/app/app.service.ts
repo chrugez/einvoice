@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PORT } from '@common/constants/common.constants';
 
 @Injectable()
 export class AppService {
   getData(): { message: string } {
     console.log(PORT);
-    return { message: 'Hello API' };
+    throw new BadRequestException('Bad request exception');
+    // return { message: 'Hello API' };
   }
 }
